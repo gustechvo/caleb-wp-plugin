@@ -119,6 +119,10 @@ function json_api_encode_acf($response) {
                 $images = get_field( 'images' , $project->id );
                 $project->images = $images;
             }
+            if(isset($project->custom_fields->images)){
+                $images = get_field( 'images-new' , $project->id );
+                $project->images = $images;
+            }
             if(isset($project->custom_fields->category)){
                 $project_type = get_field('category',$project->id);
                 foreach ($project_type as $proj){ 
